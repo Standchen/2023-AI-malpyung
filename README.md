@@ -11,7 +11,7 @@ All the resulting models are designed to fit in RTX 4090 and assessed using the 
 **bert_plain.py**: Fine-tune a BERT model for multi-label sequence classification by attaching a fully-connected layer to the output representation of CLS token.
 **bert_GRU.py**: Fine-tune a BERT model for multi-label sequence classification by attaching a bidrectional GRU layer on top of the model. The representations from GRU is then concatenated to CLS token representation, and passed to multiple fully-connected layers for classification.
 
-## GPT Models
+## GPT Model
 **gpt_train.py**: Fine-tune a GPT model to answer what emotion is expressed in the given sentence. To accommodate the model within a 24GB VRAM, the base model is quantized to 4-bit representation and fine-tuned employing QLoRA.
 **gpt_inference.py**: Perform inference using the fine-tuned model from `gpt_train.py`. Presence of each emotion is determined based on transition probabilities of the model.
 
@@ -21,11 +21,13 @@ Training the models from scratch requires the corpus dataset, but it is not incl
 To train the BERT-based models, simply run either `python bert_plain.py` or `python bert_GRU.py`.
 
 For the GPT-based model, fine-tune the model with `python gpt_train.py`. Then, run the following command to perform inference on `eval` dataset.
-`python gpt_inference.py --model-ckpt-path {model_checkpoint_path}`
+```
+python gpt_inference.py --model-ckpt-path {model_checkpoint_path}
+```
 
 # Results
 
-Used [klue/roberta-large](https://huggingface.co/klue/roberta-large) as the base for BERT models and [nlpai-lab/kullm-polyglot-12.8b-v2](https://huggingface.co/nlpai-lab/kullm-polyglot-12.8b-v2) for the GPT model.
+Used [klue/roberta-large](https://huggingface.co/klue/roberta-large) as the base for BERT models and [nlpai-lab/kullm-polyglot-12.8b-v2](https://huggingface.co/nlpai-lab/kullm-polyglot-12.8b-v2) for the GPT model.  
 All the models are trained with default configurations in the script.
 
 Below are F1-scores of resulting models obtained on the evaluation dataset.
