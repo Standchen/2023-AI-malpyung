@@ -1,0 +1,264 @@
+(.venv) root@9312b040068d:/workspace/QLoRA# python gpt_train.py --epochs 5
+/workspace/QLoRA/.venv/lib/python3.10/site-packages/transformers/utils/generic.py:311: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  torch.utils._pytree._register_pytree_node(
+2024-03-23 01:46:18.191294: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-03-23 01:46:18.300643: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2024-03-23 01:46:18.300703: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2024-03-23 01:46:18.319349: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-03-23 01:46:18.872267: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2024-03-23 01:46:18.872370: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2024-03-23 01:46:18.872391: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+[2024-03-23 01:46:19,445] (gpt_train) ########## Arguments ##########
+[2024-03-23 01:46:19,445] (gpt_train) model               : nlpai-lab/kullm-polyglot-12.8b-v2
+[2024-03-23 01:46:19,446] (gpt_train) batch_size          : 16
+[2024-03-23 01:46:19,446] (gpt_train) epochs              : 5
+[2024-03-23 01:46:19,446] (gpt_train) lr                  : 0.0002
+[2024-03-23 01:46:19,446] (gpt_train) seed                : 42
+[2024-03-23 01:46:19,446] (gpt_train) rank                : 16
+[2024-03-23 01:46:19,446] (gpt_train) alpha               : 32
+[2024-03-23 01:46:19,446] (gpt_train) dropout             : 0.05
+[2024-03-23 01:46:19,446] (gpt_train) output_dir          : ./outputs
+[2024-03-23 01:46:19,446] (gpt_train) [*] Load dataset
+Downloading data files: 100%|█████████████████| 1/1 [00:00<00:00, 8542.37it/s]
+Extracting data files: 100%|██████████████████| 1/1 [00:00<00:00, 1083.80it/s]
+Generating train split: 37932 examples [00:00, 623831.88 examples/s]
+[2024-03-23 01:46:21,175] (gpt_train) [*] Load model and tokenizer
+Downloading tokenizer_config.json: 100%|█████| 210/210 [00:00<00:00, 1.63MB/s]
+Downloading tokenizer.json: 100%|████████| 1.65M/1.65M [00:00<00:00, 7.33MB/s]
+Downloading (…)cial_tokens_map.json: 100%|███| 185/185 [00:00<00:00, 1.15MB/s]
+Downloading config.json: 100%|███████████████| 714/714 [00:00<00:00, 6.00MB/s]
+Downloading (…)model.bin.index.json: 100%|█| 52.5k/52.5k [00:00<00:00, 237kB/s
+Downloading (…)l-00001-of-00003.bin: 100%|██████████████| 10.0G/10.0G [09:21<00:00, 17.9MB/s]
+Downloading (…)l-00002-of-00003.bin: 100%|██████████████| 9.93G/9.93G [09:10<00:00, 18.0MB/s]
+Downloading (…)l-00003-of-00003.bin: 100%|██████████████| 6.01G/6.01G [05:44<00:00, 17.4MB/s]
+Downloading shards: 100%|██████████████████████| 3/3 [24:21<00:00, 487.03s/it]0:00, 17.9MB/s]
+Loading checkpoint shards: 100%|███████████████████████████████| 3/3 [00:12<00:00,  4.03s/it]
+Downloading generation_config.json: 100%|████████████████████| 111/111 [00:00<00:00, 447kB/s]
+[2024-03-23 02:12:16,397] (gpt_train) [*] Prerprocessing
+Map: 100%|███████████████████████████████████| 37932/37932 [00:02<00:00, 14453.89 examples/s]
+Map: 100%|████████████████████████████████████| 37932/37932 [00:05<00:00, 6476.70 examples/s]
+[2024-03-23 02:12:24,901] (gpt_train) [*] colon_token_id = 29
+[2024-03-23 02:12:24,911] (gpt_train) [*] Start training
+  0%|                                                              | 0/13085 [00:00<?, ?it/s]You're using a PreTrainedTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+/workspace/QLoRA/.venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+  0%|▏                                                  | 41/13085 [00:55<4:  0%|                                  | 42/13085 [00:56<4:37:44,  1.28s/it]{'loss': 5.28, 'learning_rate': 1.008403361344538e-05, 'epoch': 0.03}       
+{'loss': 1.5539, 'learning_rate': 2.016806722689076e-05, 'epoch': 0.05}     
+{'loss': 1.1052, 'learning_rate': 3.0252100840336133e-05, 'epoch': 0.08}    
+{'loss': 0.9013, 'learning_rate': 4.033613445378152e-05, 'epoch': 0.1}      
+{'loss': 0.8563, 'learning_rate': 5.042016806722689e-05, 'epoch': 0.13}     
+{'loss': 0.8648, 'learning_rate': 6.0504201680672267e-05, 'epoch': 0.15}    
+{'loss': 0.7671, 'learning_rate': 7.058823529411765e-05, 'epoch': 0.18}     
+{'loss': 0.7096, 'learning_rate': 8.067226890756304e-05, 'epoch': 0.2}      
+{'loss': 0.7571, 'learning_rate': 9.07563025210084e-05, 'epoch': 0.23}      
+{'loss': 0.6942, 'learning_rate': 0.00010084033613445378, 'epoch': 0.25}    
+{'loss': 0.6406, 'learning_rate': 0.00011092436974789917, 'epoch': 0.28}    
+{'loss': 0.676, 'learning_rate': 0.00012100840336134453, 'epoch': 0.3}      
+{'loss': 0.6848, 'learning_rate': 0.00013109243697478993, 'epoch': 0.33}    
+{'loss': 0.6647, 'learning_rate': 0.0001411764705882353, 'epoch': 0.35}     
+{'loss': 0.6103, 'learning_rate': 0.00015126050420168066, 'epoch': 0.38}    
+{'loss': 0.5851, 'learning_rate': 0.00016134453781512607, 'epoch': 0.4}     
+{'loss': 0.6036, 'learning_rate': 0.00017142857142857143, 'epoch': 0.43}    
+{'loss': 0.552, 'learning_rate': 0.0001815126050420168, 'epoch': 0.45}      
+{'loss': 0.6335, 'learning_rate': 0.00019159663865546221, 'epoch': 0.48}    
+ 10%|███▏                            | 1309/13085 [29:23<4:26:05,  1.36s/it]/workspace/QLoRA/.venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 0.5988, 'learning_rate': 0.0001998131793478261, 'epoch': 0.5}      
+{'loss': 0.5773, 'learning_rate': 0.00019869225543478263, 'epoch': 0.53}    
+{'loss': 0.5679, 'learning_rate': 0.00019757133152173913, 'epoch': 0.55}    
+{'loss': 0.5741, 'learning_rate': 0.00019645040760869566, 'epoch': 0.58}    
+{'loss': 0.5855, 'learning_rate': 0.0001953294836956522, 'epoch': 0.61}     
+{'loss': 0.5256, 'learning_rate': 0.0001942085597826087, 'epoch': 0.63}     
+{'loss': 0.6108, 'learning_rate': 0.00019308763586956522, 'epoch': 0.66}    
+{'loss': 0.5216, 'learning_rate': 0.00019196671195652174, 'epoch': 0.68}    
+{'loss': 0.5473, 'learning_rate': 0.00019084578804347827, 'epoch': 0.71}    
+{'loss': 0.5805, 'learning_rate': 0.0001897248641304348, 'epoch': 0.73}     
+{'loss': 0.4787, 'learning_rate': 0.00018860394021739133, 'epoch': 0.76}    
+{'loss': 0.5315, 'learning_rate': 0.00018748301630434783, 'epoch': 0.78}    
+{'loss': 0.5043, 'learning_rate': 0.00018636209239130435, 'epoch': 0.81}    
+{'loss': 0.5369, 'learning_rate': 0.00018524116847826088, 'epoch': 0.83}    
+{'loss': 0.5014, 'learning_rate': 0.00018412024456521738, 'epoch': 0.86}    
+{'loss': 0.5863, 'learning_rate': 0.0001829993206521739, 'epoch': 0.88}     
+{'loss': 0.51, 'learning_rate': 0.00018187839673913046, 'epoch': 0.91}      
+{'loss': 0.5522, 'learning_rate': 0.00018075747282608696, 'epoch': 0.93}    
+{'loss': 0.513, 'learning_rate': 0.0001796365489130435, 'epoch': 0.96}      
+{'loss': 0.5506, 'learning_rate': 0.00017851562500000002, 'epoch': 0.98}    
+ 20%|██████▍                         | 2618/13085 [58:41<3:42:45,  1.28s/it]/workspace/QLoRA/.venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 0.4487, 'learning_rate': 0.00017739470108695652, 'epoch': 1.01}    
+{'loss': 0.4533, 'learning_rate': 0.00017627377717391305, 'epoch': 1.03}    
+{'loss': 0.4067, 'learning_rate': 0.00017515285326086957, 'epoch': 1.06}    
+{'loss': 0.4497, 'learning_rate': 0.0001740319293478261, 'epoch': 1.08}     
+{'loss': 0.4219, 'learning_rate': 0.00017291100543478263, 'epoch': 1.11}    
+{'loss': 0.4202, 'learning_rate': 0.00017179008152173915, 'epoch': 1.13}    
+{'loss': 0.4382, 'learning_rate': 0.00017066915760869565, 'epoch': 1.16}    
+{'loss': 0.413, 'learning_rate': 0.00016954823369565218, 'epoch': 1.19}     
+{'loss': 0.4059, 'learning_rate': 0.0001684273097826087, 'epoch': 1.21}     
+{'loss': 0.4653, 'learning_rate': 0.0001673063858695652, 'epoch': 1.24}     
+{'loss': 0.4676, 'learning_rate': 0.00016618546195652174, 'epoch': 1.26}    
+{'loss': 0.431, 'learning_rate': 0.0001650645380434783, 'epoch': 1.29}      
+{'loss': 0.4127, 'learning_rate': 0.0001639436141304348, 'epoch': 1.31}     
+{'loss': 0.423, 'learning_rate': 0.00016282269021739132, 'epoch': 1.34}     
+{'loss': 0.4643, 'learning_rate': 0.00016170176630434785, 'epoch': 1.36}    
+{'loss': 0.4411, 'learning_rate': 0.00016058084239130435, 'epoch': 1.39}    
+{'loss': 0.4462, 'learning_rate': 0.00015945991847826087, 'epoch': 1.41}    
+{'loss': 0.454, 'learning_rate': 0.0001583389945652174, 'epoch': 1.44}      
+{'loss': 0.4256, 'learning_rate': 0.0001572180706521739, 'epoch': 1.46}     
+{'loss': 0.4309, 'learning_rate': 0.00015609714673913046, 'epoch': 1.49}    
+ 30%|█████████                     | 3927/13085 [1:27:57<3:31:10,  1.38s/it]/workspace/QLoRA/.venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 0.4196, 'learning_rate': 0.00015497622282608696, 'epoch': 1.51}    
+{'loss': 0.4479, 'learning_rate': 0.00015385529891304348, 'epoch': 1.54}    
+{'loss': 0.3907, 'learning_rate': 0.000152734375, 'epoch': 1.56}            
+{'loss': 0.4554, 'learning_rate': 0.00015161345108695654, 'epoch': 1.59}    
+{'loss': 0.4584, 'learning_rate': 0.00015049252717391304, 'epoch': 1.61}    
+{'loss': 0.3815, 'learning_rate': 0.00014937160326086957, 'epoch': 1.64}    
+{'loss': 0.3906, 'learning_rate': 0.0001482506793478261, 'epoch': 1.66}     
+{'loss': 0.4368, 'learning_rate': 0.00014712975543478262, 'epoch': 1.69}    
+{'loss': 0.4757, 'learning_rate': 0.00014600883152173915, 'epoch': 1.71}    
+{'loss': 0.4065, 'learning_rate': 0.00014488790760869565, 'epoch': 1.74}    
+{'loss': 0.421, 'learning_rate': 0.00014376698369565218, 'epoch': 1.77}     
+{'loss': 0.4679, 'learning_rate': 0.0001426460597826087, 'epoch': 1.79}     
+{'loss': 0.4252, 'learning_rate': 0.00014152513586956523, 'epoch': 1.82}    
+{'loss': 0.4677, 'learning_rate': 0.00014040421195652173, 'epoch': 1.84}    
+{'loss': 0.4391, 'learning_rate': 0.00013928328804347828, 'epoch': 1.87}    
+{'loss': 0.4267, 'learning_rate': 0.00013816236413043479, 'epoch': 1.89}    
+{'loss': 0.5177, 'learning_rate': 0.0001370414402173913, 'epoch': 1.92}     
+{'loss': 0.4776, 'learning_rate': 0.00013592051630434784, 'epoch': 1.94}    
+{'loss': 0.4109, 'learning_rate': 0.00013479959239130434, 'epoch': 1.97}    
+{'loss': 0.4643, 'learning_rate': 0.00013367866847826087, 'epoch': 1.99}    
+ 40%|████████████                  | 5236/13085 [1:57:13<2:50:49,  1.31s/it]/workspace/QLoRA/.venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 0.3053, 'learning_rate': 0.0001325577445652174, 'epoch': 2.02}     
+{'loss': 0.2946, 'learning_rate': 0.00013143682065217392, 'epoch': 2.04}    
+{'loss': 0.3394, 'learning_rate': 0.00013031589673913045, 'epoch': 2.07}    
+{'loss': 0.2986, 'learning_rate': 0.00012919497282608698, 'epoch': 2.09}    
+{'loss': 0.3237, 'learning_rate': 0.00012807404891304348, 'epoch': 2.12}    
+{'loss': 0.3164, 'learning_rate': 0.000126953125, 'epoch': 2.14}            
+{'loss': 0.3097, 'learning_rate': 0.00012583220108695653, 'epoch': 2.17}    
+{'loss': 0.3103, 'learning_rate': 0.00012471127717391303, 'epoch': 2.19}    
+{'loss': 0.3271, 'learning_rate': 0.00012359035326086956, 'epoch': 2.22}    
+{'loss': 0.3113, 'learning_rate': 0.00012246942934782611, 'epoch': 2.24}    
+{'loss': 0.299, 'learning_rate': 0.00012134850543478263, 'epoch': 2.27}     
+{'loss': 0.351, 'learning_rate': 0.00012022758152173914, 'epoch': 2.29}     
+{'loss': 0.3382, 'learning_rate': 0.00011910665760869566, 'epoch': 2.32}    
+{'loss': 0.3162, 'learning_rate': 0.00011798573369565218, 'epoch': 2.35}    
+{'loss': 0.322, 'learning_rate': 0.0001168648097826087, 'epoch': 2.37}      
+{'loss': 0.3378, 'learning_rate': 0.00011574388586956521, 'epoch': 2.4}     
+{'loss': 0.3493, 'learning_rate': 0.00011462296195652174, 'epoch': 2.42}    
+{'loss': 0.3425, 'learning_rate': 0.00011350203804347828, 'epoch': 2.45}    
+{'loss': 0.315, 'learning_rate': 0.00011238111413043479, 'epoch': 2.47}     
+{'loss': 0.3571, 'learning_rate': 0.00011126019021739132, 'epoch': 2.5}     
+ 50%|███████████████               | 6545/13085 [2:26:31<2:22:35,  1.31s/it]/workspace/QLoRA/.venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 0.3173, 'learning_rate': 0.00011013926630434783, 'epoch': 2.52}    
+{'loss': 0.3471, 'learning_rate': 0.00010901834239130435, 'epoch': 2.55}    
+{'loss': 0.3246, 'learning_rate': 0.00010789741847826087, 'epoch': 2.57}    
+{'loss': 0.3685, 'learning_rate': 0.00010677649456521739, 'epoch': 2.6}     
+{'loss': 0.3636, 'learning_rate': 0.0001056555706521739, 'epoch': 2.62}     
+{'loss': 0.3445, 'learning_rate': 0.00010453464673913044, 'epoch': 2.65}    
+{'loss': 0.3462, 'learning_rate': 0.00010341372282608697, 'epoch': 2.67}    
+{'loss': 0.34, 'learning_rate': 0.00010229279891304348, 'epoch': 2.7}       
+{'loss': 0.3314, 'learning_rate': 0.00010117187500000001, 'epoch': 2.72}    
+{'loss': 0.3259, 'learning_rate': 0.00010005095108695653, 'epoch': 2.75}    
+{'loss': 0.3287, 'learning_rate': 9.893002717391305e-05, 'epoch': 2.77}     
+{'loss': 0.3371, 'learning_rate': 9.780910326086957e-05, 'epoch': 2.8}      
+{'loss': 0.3602, 'learning_rate': 9.66881793478261e-05, 'epoch': 2.82}      
+{'loss': 0.3223, 'learning_rate': 9.556725543478261e-05, 'epoch': 2.85}     
+{'loss': 0.3568, 'learning_rate': 9.444633152173913e-05, 'epoch': 2.88}     
+{'loss': 0.3592, 'learning_rate': 9.332540760869566e-05, 'epoch': 2.9}      
+{'loss': 0.3703, 'learning_rate': 9.220448369565218e-05, 'epoch': 2.93}     
+{'loss': 0.369, 'learning_rate': 9.108355978260869e-05, 'epoch': 2.95}      
+{'loss': 0.3393, 'learning_rate': 8.996263586956523e-05, 'epoch': 2.98}     
+{'loss': 0.3409, 'learning_rate': 8.884171195652174e-05, 'epoch': 3.0}      
+ 60%|██████████████████            | 7854/13085 [2:55:45<1:54:26,  1.31s/it]/workspace/QLoRA/.venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 0.2323, 'learning_rate': 8.772078804347826e-05, 'epoch': 3.03}     
+{'loss': 0.2215, 'learning_rate': 8.659986413043479e-05, 'epoch': 3.05}     
+{'loss': 0.2226, 'learning_rate': 8.547894021739131e-05, 'epoch': 3.08}     
+{'loss': 0.2286, 'learning_rate': 8.435801630434783e-05, 'epoch': 3.1}      
+{'loss': 0.2367, 'learning_rate': 8.323709239130435e-05, 'epoch': 3.13}     
+{'loss': 0.2628, 'learning_rate': 8.211616847826087e-05, 'epoch': 3.15}     
+{'loss': 0.2462, 'learning_rate': 8.09952445652174e-05, 'epoch': 3.18}      
+{'loss': 0.24, 'learning_rate': 7.987432065217392e-05, 'epoch': 3.2}        
+{'loss': 0.2641, 'learning_rate': 7.875339673913044e-05, 'epoch': 3.23}     
+{'loss': 0.2608, 'learning_rate': 7.763247282608695e-05, 'epoch': 3.25}     
+{'loss': 0.2467, 'learning_rate': 7.651154891304349e-05, 'epoch': 3.28}     
+{'loss': 0.2726, 'learning_rate': 7.5390625e-05, 'epoch': 3.3}              
+{'loss': 0.2792, 'learning_rate': 7.426970108695652e-05, 'epoch': 3.33}     
+{'loss': 0.2535, 'learning_rate': 7.314877717391305e-05, 'epoch': 3.35}     
+{'loss': 0.2693, 'learning_rate': 7.202785326086957e-05, 'epoch': 3.38}     
+{'loss': 0.2261, 'learning_rate': 7.090692934782609e-05, 'epoch': 3.4}      
+{'loss': 0.2917, 'learning_rate': 6.978600543478261e-05, 'epoch': 3.43}     
+{'loss': 0.2837, 'learning_rate': 6.866508152173914e-05, 'epoch': 3.46}     
+{'loss': 0.2953, 'learning_rate': 6.754415760869566e-05, 'epoch': 3.48}     
+ 70%|█████████████████████         | 9163/13085 [3:24:54<1:25:26,  1.31s/it]/workspace/QLoRA/.venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 0.2606, 'learning_rate': 6.642323369565218e-05, 'epoch': 3.51}     
+{'loss': 0.2585, 'learning_rate': 6.53023097826087e-05, 'epoch': 3.53}      
+{'loss': 0.2707, 'learning_rate': 6.418138586956522e-05, 'epoch': 3.56}     
+{'loss': 0.3035, 'learning_rate': 6.306046195652174e-05, 'epoch': 3.58}     
+{'loss': 0.2481, 'learning_rate': 6.193953804347826e-05, 'epoch': 3.61}     
+{'loss': 0.2919, 'learning_rate': 6.081861413043478e-05, 'epoch': 3.63}     
+{'loss': 0.2459, 'learning_rate': 5.969769021739131e-05, 'epoch': 3.66}     
+{'loss': 0.2969, 'learning_rate': 5.857676630434783e-05, 'epoch': 3.68}     
+{'loss': 0.2441, 'learning_rate': 5.745584239130435e-05, 'epoch': 3.71}     
+{'loss': 0.2482, 'learning_rate': 5.633491847826087e-05, 'epoch': 3.73}     
+{'loss': 0.2721, 'learning_rate': 5.5213994565217395e-05, 'epoch': 3.76}    
+{'loss': 0.2758, 'learning_rate': 5.4093070652173916e-05, 'epoch': 3.78}    
+{'loss': 0.2452, 'learning_rate': 5.2972146739130436e-05, 'epoch': 3.81}    
+{'loss': 0.2757, 'learning_rate': 5.185122282608696e-05, 'epoch': 3.83}     
+{'loss': 0.2718, 'learning_rate': 5.0730298913043484e-05, 'epoch': 3.86}    
+{'loss': 0.3011, 'learning_rate': 4.9609375000000005e-05, 'epoch': 3.88}    
+{'loss': 0.2797, 'learning_rate': 4.8488451086956525e-05, 'epoch': 3.91}    
+{'loss': 0.29, 'learning_rate': 4.7367527173913046e-05, 'epoch': 3.93}      
+{'loss': 0.2686, 'learning_rate': 4.6246603260869566e-05, 'epoch': 3.96}    
+{'loss': 0.3074, 'learning_rate': 4.512567934782609e-05, 'epoch': 3.98}     
+ 80%|████████████████████████▊      | 10472/13085 [3:54:08<53:46,  1.23s/it]/workspace/QLoRA/.venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 0.2281, 'learning_rate': 4.4004755434782614e-05, 'epoch': 4.01}    
+{'loss': 0.1923, 'learning_rate': 4.2883831521739135e-05, 'epoch': 4.04}    
+{'loss': 0.194, 'learning_rate': 4.1762907608695656e-05, 'epoch': 4.06}     
+{'loss': 0.183, 'learning_rate': 4.0641983695652176e-05, 'epoch': 4.09}     
+{'loss': 0.215, 'learning_rate': 3.95210597826087e-05, 'epoch': 4.11}       
+{'loss': 0.2015, 'learning_rate': 3.840013586956522e-05, 'epoch': 4.14}     
+{'loss': 0.1972, 'learning_rate': 3.7279211956521745e-05, 'epoch': 4.16}    
+{'loss': 0.2195, 'learning_rate': 3.615828804347826e-05, 'epoch': 4.19}     
+{'loss': 0.2148, 'learning_rate': 3.5037364130434786e-05, 'epoch': 4.21}    
+{'loss': 0.214, 'learning_rate': 3.3916440217391306e-05, 'epoch': 4.24}     
+{'loss': 0.2159, 'learning_rate': 3.279551630434783e-05, 'epoch': 4.26}     
+{'loss': 0.219, 'learning_rate': 3.167459239130435e-05, 'epoch': 4.29}      
+{'loss': 0.1982, 'learning_rate': 3.0553668478260875e-05, 'epoch': 4.31}    
+{'loss': 0.2038, 'learning_rate': 2.9432744565217392e-05, 'epoch': 4.34}    
+{'loss': 0.1971, 'learning_rate': 2.8311820652173916e-05, 'epoch': 4.36}    
+{'loss': 0.2233, 'learning_rate': 2.7190896739130433e-05, 'epoch': 4.39}    
+{'loss': 0.1964, 'learning_rate': 2.6069972826086957e-05, 'epoch': 4.41}    
+{'loss': 0.211, 'learning_rate': 2.494904891304348e-05, 'epoch': 4.44}      
+{'loss': 0.2005, 'learning_rate': 2.3828125e-05, 'epoch': 4.46}             
+{'loss': 0.2137, 'learning_rate': 2.2707201086956522e-05, 'epoch': 4.49}    
+ 90%|███████████████████████████▉   | 11781/13085 [4:23:22<30:43,  1.41s/it]/workspace/QLoRA/.venv/lib/python3.10/site-packages/torch/utils/checkpoint.py:460: UserWarning: torch.utils.checkpoint: please pass in use_reentrant=True or use_reentrant=False explicitly. The default value of use_reentrant will be updated to be False in the future. To maintain current behavior, pass use_reentrant=True. It is recommended that you use use_reentrant=False. Refer to docs for more details on the differences between the two variants.
+  warnings.warn(
+{'loss': 0.2126, 'learning_rate': 2.1586277173913043e-05, 'epoch': 4.51}    
+{'loss': 0.2314, 'learning_rate': 2.0465353260869567e-05, 'epoch': 4.54}    
+{'loss': 0.232, 'learning_rate': 1.9344429347826087e-05, 'epoch': 4.56}     
+{'loss': 0.2404, 'learning_rate': 1.8223505434782608e-05, 'epoch': 4.59}    
+{'loss': 0.2199, 'learning_rate': 1.710258152173913e-05, 'epoch': 4.62}     
+{'loss': 0.2411, 'learning_rate': 1.5981657608695652e-05, 'epoch': 4.64}    
+{'loss': 0.2036, 'learning_rate': 1.4860733695652173e-05, 'epoch': 4.67}    
+{'loss': 0.2316, 'learning_rate': 1.3739809782608695e-05, 'epoch': 4.69}    
+{'loss': 0.2228, 'learning_rate': 1.2618885869565217e-05, 'epoch': 4.72}    
+{'loss': 0.2202, 'learning_rate': 1.149796195652174e-05, 'epoch': 4.74}     
+{'loss': 0.2325, 'learning_rate': 1.0377038043478262e-05, 'epoch': 4.77}    
+{'loss': 0.2071, 'learning_rate': 9.256114130434782e-06, 'epoch': 4.79}     
+{'loss': 0.2061, 'learning_rate': 8.135190217391305e-06, 'epoch': 4.82}     
+{'loss': 0.2255, 'learning_rate': 7.014266304347826e-06, 'epoch': 4.84}     
+{'loss': 0.2191, 'learning_rate': 5.893342391304348e-06, 'epoch': 4.87}     
+{'loss': 0.1667, 'learning_rate': 4.77241847826087e-06, 'epoch': 4.89}      
+{'loss': 0.1924, 'learning_rate': 3.651494565217391e-06, 'epoch': 4.92}     
+{'loss': 0.2076, 'learning_rate': 2.5305706521739135e-06, 'epoch': 4.94}    
+{'loss': 0.2197, 'learning_rate': 1.4096467391304349e-06, 'epoch': 4.97}    
+{'loss': 0.197, 'learning_rate': 2.887228260869565e-07, 'epoch': 4.99}      
+{'train_runtime': 17550.4767, 'train_samples_per_second': 11.927, 'train_steps_per_second': 0.746, 'train_loss': 0.4023640522576034, 'epoch': 5.0}
+100%|███████████████████████████████| 13085/13085 [4:52:30<00:00,  1.34s/it]
+[2024-03-23 07:04:55,592] (gpt_train) [*] Done!

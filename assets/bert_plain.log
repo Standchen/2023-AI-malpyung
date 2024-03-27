@@ -1,0 +1,47 @@
+[2024-03-26 15:45:08,669] (bert_plain) ########## Arguments ##########
+[2024-03-26 15:45:08,669] (bert_plain) model               : klue/roberta-large
+[2024-03-26 15:45:08,669] (bert_plain) train_batch_size    : 24
+[2024-03-26 15:45:08,669] (bert_plain) val_batch_size      : 48
+[2024-03-26 15:45:08,669] (bert_plain) epochs              : 5
+[2024-03-26 15:45:08,669] (bert_plain) lr                  : 2e-05
+[2024-03-26 15:45:08,669] (bert_plain) weight_decay        : 0.01
+[2024-03-26 15:45:08,670] (bert_plain) seed                : 42
+[2024-03-26 15:45:08,670] (bert_plain) output_dir          : bert_plain_outputs
+[2024-03-26 15:45:08,670] (bert_plain) [*] Load datasets
+[2024-03-26 15:45:08,703] (bert_plain) [*] Load pre-trained model and associated tokenizer
+Downloading config.json: 100%|██████████████████████████████████████████████████████████| 547/547 [00:00<00:00, 1.89MB/s]
+Downloading model.safetensors: 100%|████████████████████████████████████████████████| 1.35G/1.35G [01:20<00:00, 16.8MB/s]
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at klue/roberta-large and are newly initialized: ['classifier.out_proj.bias', 'classifier.dense.weight', 'classifier.out_proj.weight', 'classifier.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Downloading tokenizer_config.json: 100%|████████████████████████████████████████████████| 375/375 [00:00<00:00, 1.14MB/s]
+Downloading vocab.txt: 100%|██████████████████████████████████████████████████████████| 248k/248k [00:00<00:00, 3.56MB/s]
+Downloading tokenizer.json: 100%|██████████████████████████████████████████████████████| 752k/752k [00:00<00:00, 834kB/s]
+Downloading (…)cial_tokens_map.json: 100%|███████████████████████████████████████████████| 173/173 [00:00<00:00, 715kB/s]
+[2024-03-26 15:46:56,334] (bert_plain) [*] Preprocessing
+Map: 100%|████████████████████████████████████████████████████████████████| 37932/37932 [00:12<00:00, 2984.41 examples/s]
+Map: 100%|██████████████████████████████████████████████████████████████████| 4751/4751 [00:01<00:00, 3032.86 examples/s]
+[2024-03-26 15:47:12,477] (bert_plain) [*] Start training
+  0%|                                                                                           | 0/7905 [00:00<?, ?it/s]You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+{'loss': 0.2908, 'learning_rate': 1.2642225031605565e-05, 'epoch': 0.32}                                                 
+{'loss': 0.1658, 'learning_rate': 1.94124262018555e-05, 'epoch': 0.63}                                                   
+{'loss': 0.1389, 'learning_rate': 1.8006747258926063e-05, 'epoch': 0.95}                                                 
+{'eval_loss': 0.11540073156356812, 'eval_f1': 0.8376358018538821, 'eval_roc_auc': 0.8942964608995508, 'eval_accuracy': 0.7684697958324563, 'eval_runtime': 11.2892, 'eval_samples_per_second': 420.846, 'eval_steps_per_second': 8.769, 'epoch': 1.0}
+{'loss': 0.111, 'learning_rate': 1.6601068315996627e-05, 'epoch': 1.27}                                                  
+{'loss': 0.1022, 'learning_rate': 1.5195389373067193e-05, 'epoch': 1.58}                                                 
+{'loss': 0.0971, 'learning_rate': 1.3789710430137757e-05, 'epoch': 1.9}                                                  
+{'eval_loss': 0.10855832695960999, 'eval_f1': 0.8570042685292977, 'eval_roc_auc': 0.9140471228303504, 'eval_accuracy': 0.792043780256788, 'eval_runtime': 11.3184, 'eval_samples_per_second': 419.759, 'eval_steps_per_second': 8.747, 'epoch': 2.0}
+{'loss': 0.0742, 'learning_rate': 1.2384031487208323e-05, 'epoch': 2.21}                                                 
+{'loss': 0.0651, 'learning_rate': 1.0978352544278888e-05, 'epoch': 2.53}                                                 
+{'loss': 0.0654, 'learning_rate': 9.572673601349452e-06, 'epoch': 2.85}                                                  
+{'eval_loss': 0.10650204867124557, 'eval_f1': 0.8651674548788726, 'eval_roc_auc': 0.9204776132815607, 'eval_accuracy': 0.7996211323931803, 'eval_runtime': 11.412, 'eval_samples_per_second': 416.316, 'eval_steps_per_second': 8.675, 'epoch': 3.0}
+{'loss': 0.0512, 'learning_rate': 8.166994658420018e-06, 'epoch': 3.16}                                                  
+{'loss': 0.0421, 'learning_rate': 6.761315715490583e-06, 'epoch': 3.48}                                                  
+{'loss': 0.0404, 'learning_rate': 5.355636772561148e-06, 'epoch': 3.8}                                                   
+{'eval_loss': 0.11453422158956528, 'eval_f1': 0.8688995215311004, 'eval_roc_auc': 0.9255799176654019, 'eval_accuracy': 0.8034098084613766, 'eval_runtime': 11.4175, 'eval_samples_per_second': 416.115, 'eval_steps_per_second': 8.671, 'epoch': 4.0}
+{'loss': 0.035, 'learning_rate': 3.949957829631713e-06, 'epoch': 4.11}                                                   
+{'loss': 0.0256, 'learning_rate': 2.5442788867022773e-06, 'epoch': 4.43}                                                 
+{'loss': 0.0249, 'learning_rate': 1.1385999437728423e-06, 'epoch': 4.74}                                                 
+{'eval_loss': 0.12308469414710999, 'eval_f1': 0.8720397249809014, 'eval_roc_auc': 0.928139920954342, 'eval_accuracy': 0.8078299305409388, 'eval_runtime': 11.3637, 'eval_samples_per_second': 418.087, 'eval_steps_per_second': 8.712, 'epoch': 5.0}
+{'train_runtime': 1404.851, 'train_samples_per_second': 135.004, 'train_steps_per_second': 5.627, 'train_loss': 0.08540504378355582, 'epoch': 5.0}                                                                                                
+100%|████████████████████████████████████████████████████████████████████████████████| 7905/7905 [23:24<00:00,  5.63it/s]
+[2024-03-26 16:10:37,538] (bert_plain) [*] Done!

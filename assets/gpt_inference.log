@@ -1,0 +1,325 @@
+(.venv) root@aa3cd4a802c6:/workspace/QLoRA# python gpt_inference.py --model-ckpt-path ./outputs/checkpoint-11781/ --output-dir ./tmp/
+/workspace/QLoRA/.venv/lib/python3.10/site-packages/transformers/utils/generic.py:311: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  torch.utils._pytree._register_pytree_node(
+2024-03-26 16:53:19.189909: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-03-26 16:53:19.315905: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2024-03-26 16:53:19.315932: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2024-03-26 16:53:19.335521: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-03-26 16:53:20.019447: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2024-03-26 16:53:20.019530: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2024-03-26 16:53:20.019540: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+[2024-03-26 16:53:20,785] (gpt_inference) ########## Arguments ##########
+[2024-03-26 16:53:20,786] (gpt_inference) model_ckpt_path     : ./outputs/checkpoint-11781/
+[2024-03-26 16:53:20,786] (gpt_inference) batch_size          : 16
+[2024-03-26 16:53:20,786] (gpt_inference) output_dir          : ./tmp/
+[2024-03-26 16:53:20,786] (gpt_inference) [*] Load datasets
+[2024-03-26 16:53:20,815] (gpt_inference) [*] Load model and tokenizer
+[2024-03-26 16:53:20,816] (gpt_inference) [*] Base model: peft_config.base_model_name_or_path = 'nlpai-lab/kullm-polyglot-12.8b-v2'
+Loading checkpoint shards: 100%|███████████████████████████████████████████████████████████| 3/3 [00:12<00:00,  4.05s/it]
+[2024-03-26 16:54:40,577] (gpt_inference) [*] Prerprocessing
+[2024-03-26 16:54:40,602] (gpt_inference) [*] Move the model to CUDA memory and switch to eval mode
+[2024-03-26 16:54:40,613] (gpt_inference) [*] Disable gradient
+[2024-03-26 16:54:40,614] (gpt_inference) [*] Now inference
+  0%|                                                                                            | 0/297 [00:00<?, ?it/s]You're using a PreTrainedTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  0%|▎                                                                                   | 1/297 [00:02<10:32,  2.14s/it]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  1%|▌                                                                                   | 2/297 [00:02<05:22,  1.09s/it]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  1%|▊                                                                                   | 3/297 [00:02<03:33,  1.38it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  1%|█▏                                                                                  | 4/297 [00:03<02:39,  1.84it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  2%|█▍                                                                                  | 5/297 [00:03<02:12,  2.21it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  2%|█▋                                                                                  | 6/297 [00:03<02:04,  2.33it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  2%|█▉                                                                                  | 7/297 [00:04<01:56,  2.50it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  3%|██▎                                                                                 | 8/297 [00:04<01:49,  2.65it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  3%|██▌                                                                                 | 9/297 [00:04<01:40,  2.86it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  3%|██▊                                                                                | 10/297 [00:05<01:38,  2.92it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  4%|███                                                                                | 11/297 [00:05<01:38,  2.89it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  4%|███▎                                                                               | 12/297 [00:05<01:31,  3.11it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  4%|███▋                                                                               | 13/297 [00:05<01:31,  3.10it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  5%|███▉                                                                               | 14/297 [00:06<01:28,  3.19it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  5%|████▏                                                                              | 15/297 [00:06<01:24,  3.34it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  5%|████▍                                                                              | 16/297 [00:06<01:23,  3.37it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  6%|████▊                                                                              | 17/297 [00:07<01:23,  3.37it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  6%|█████                                                                              | 18/297 [00:07<01:22,  3.39it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  6%|█████▎                                                                             | 19/297 [00:07<01:24,  3.28it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  7%|█████▌                                                                             | 20/297 [00:07<01:20,  3.43it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  7%|█████▊                                                                             | 21/297 [00:08<01:20,  3.43it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  7%|██████▏                                                                            | 22/297 [00:08<01:25,  3.21it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  8%|██████▍                                                                            | 23/297 [00:08<01:21,  3.37it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  8%|██████▋                                                                            | 24/297 [00:09<01:25,  3.18it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  8%|██████▉                                                                            | 25/297 [00:09<01:29,  3.05it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  9%|███████▎                                                                           | 26/297 [00:09<01:30,  2.98it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  9%|███████▌                                                                           | 27/297 [00:10<01:29,  3.01it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+  9%|███████▊                                                                           | 28/297 [00:10<01:31,  2.94it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 10%|████████                                                                           | 29/297 [00:11<01:32,  2.91it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 10%|████████▍                                                                          | 30/297 [00:11<01:30,  2.95it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 10%|████████▋                                                                          | 31/297 [00:11<01:26,  3.08it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 11%|████████▉                                                                          | 32/297 [00:11<01:23,  3.17it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 11%|█████████▏                                                                         | 33/297 [00:12<01:21,  3.25it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 11%|█████████▌                                                                         | 34/297 [00:12<01:25,  3.09it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 12%|█████████▊                                                                         | 35/297 [00:12<01:25,  3.08it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 12%|██████████                                                                         | 36/297 [00:13<01:27,  2.97it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 12%|██████████▎                                                                        | 37/297 [00:13<01:26,  2.99it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 13%|██████████▌                                                                        | 38/297 [00:13<01:21,  3.18it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 13%|██████████▉                                                                        | 39/297 [00:14<01:19,  3.27it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 13%|███████████▏                                                                       | 40/297 [00:14<01:22,  3.11it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 14%|███████████▍                                                                       | 41/297 [00:14<01:25,  2.99it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 14%|███████████▋                                                                       | 42/297 [00:15<01:27,  2.93it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 14%|████████████                                                                       | 43/297 [00:15<01:28,  2.88it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 15%|████████████▎                                                                      | 44/297 [00:15<01:26,  2.92it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 15%|████████████▌                                                                      | 45/297 [00:16<01:27,  2.88it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 15%|████████████▊                                                                      | 46/297 [00:16<01:26,  2.91it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 16%|█████████████▏                                                                     | 47/297 [00:16<01:25,  2.93it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 16%|█████████████▍                                                                     | 48/297 [00:17<01:25,  2.90it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 16%|█████████████▋                                                                     | 49/297 [00:17<01:26,  2.86it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 17%|█████████████▉                                                                     | 50/297 [00:17<01:22,  3.00it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 17%|██████████████▎                                                                    | 51/297 [00:18<01:21,  3.01it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 18%|██████████████▌                                                                    | 52/297 [00:18<01:18,  3.12it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 18%|██████████████▊                                                                    | 53/297 [00:18<01:14,  3.27it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 18%|███████████████                                                                    | 54/297 [00:19<01:11,  3.40it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 19%|███████████████▎                                                                   | 55/297 [00:19<01:10,  3.41it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 19%|███████████████▋                                                                   | 56/297 [00:19<01:10,  3.42it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 19%|███████████████▉                                                                   | 57/297 [00:19<01:08,  3.52it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 20%|████████████████▏                                                                  | 58/297 [00:20<01:08,  3.50it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 20%|████████████████▍                                                                  | 59/297 [00:20<01:10,  3.36it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 20%|████████████████▊                                                                  | 60/297 [00:20<01:09,  3.39it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 21%|█████████████████                                                                  | 61/297 [00:21<01:12,  3.27it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 21%|█████████████████▎                                                                 | 62/297 [00:21<01:13,  3.19it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 21%|█████████████████▌                                                                 | 63/297 [00:21<01:11,  3.28it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 22%|█████████████████▉                                                                 | 64/297 [00:22<01:12,  3.22it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 22%|██████████████████▏                                                                | 65/297 [00:22<01:15,  3.08it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 22%|██████████████████▍                                                                | 66/297 [00:22<01:17,  3.00it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 23%|██████████████████▋                                                                | 67/297 [00:23<01:16,  3.03it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 23%|███████████████████                                                                | 68/297 [00:23<01:13,  3.13it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 23%|███████████████████▎                                                               | 69/297 [00:23<01:13,  3.11it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 24%|███████████████████▌                                                               | 70/297 [00:24<01:15,  3.00it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 24%|███████████████████▊                                                               | 71/297 [00:24<01:15,  3.01it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 24%|████████████████████                                                               | 72/297 [00:24<01:16,  2.94it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 25%|████████████████████▍                                                              | 73/297 [00:25<01:17,  2.89it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 25%|████████████████████▋                                                              | 74/297 [00:25<01:11,  3.10it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 25%|████████████████████▉                                                              | 75/297 [00:25<01:13,  3.01it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 26%|█████████████████████▏                                                             | 76/297 [00:26<01:15,  2.93it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 26%|█████████████████████▌                                                             | 77/297 [00:26<01:11,  3.07it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 26%|█████████████████████▊                                                             | 78/297 [00:26<01:08,  3.17it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 27%|██████████████████████                                                             | 79/297 [00:27<01:07,  3.23it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 27%|██████████████████████▎                                                            | 80/297 [00:27<01:05,  3.29it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 27%|██████████████████████▋                                                            | 81/297 [00:27<01:07,  3.21it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 28%|██████████████████████▉                                                            | 82/297 [00:27<01:05,  3.27it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 28%|███████████████████████▏                                                           | 83/297 [00:28<01:07,  3.18it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 28%|███████████████████████▍                                                           | 84/297 [00:28<01:05,  3.24it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 29%|███████████████████████▊                                                           | 85/297 [00:28<01:04,  3.28it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 29%|████████████████████████                                                           | 86/297 [00:29<01:09,  3.05it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 29%|████████████████████████▎                                                          | 87/297 [00:29<01:15,  2.80it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 30%|████████████████████████▌                                                          | 88/297 [00:30<01:14,  2.79it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 30%|████████████████████████▊                                                          | 89/297 [00:30<01:10,  2.95it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 30%|█████████████████████████▏                                                         | 90/297 [00:30<01:09,  2.96it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 31%|█████████████████████████▍                                                         | 91/297 [00:31<01:11,  2.90it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 31%|█████████████████████████▋                                                         | 92/297 [00:31<01:07,  3.02it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 31%|█████████████████████████▉                                                         | 93/297 [00:31<01:09,  2.94it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 32%|██████████████████████████▎                                                        | 94/297 [00:32<01:13,  2.77it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 32%|██████████████████████████▌                                                        | 95/297 [00:32<01:08,  2.93it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 32%|██████████████████████████▊                                                        | 96/297 [00:32<01:05,  3.06it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 33%|███████████████████████████                                                        | 97/297 [00:32<01:01,  3.25it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 33%|███████████████████████████▍                                                       | 98/297 [00:33<01:08,  2.91it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 33%|███████████████████████████▋                                                       | 99/297 [00:33<01:05,  3.04it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 34%|███████████████████████████▌                                                      | 100/297 [00:34<01:06,  2.94it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 34%|███████████████████████████▉                                                      | 101/297 [00:34<01:02,  3.14it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 34%|████████████████████████████▏                                                     | 102/297 [00:34<00:59,  3.29it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 35%|████████████████████████████▍                                                     | 103/297 [00:34<00:58,  3.31it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 35%|████████████████████████████▋                                                     | 104/297 [00:35<01:01,  3.14it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 35%|████████████████████████████▉                                                     | 105/297 [00:35<00:59,  3.20it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 36%|█████████████████████████████▎                                                    | 106/297 [00:35<00:58,  3.25it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 36%|█████████████████████████████▌                                                    | 107/297 [00:36<01:01,  3.08it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 36%|█████████████████████████████▊                                                    | 108/297 [00:36<01:01,  3.06it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 37%|██████████████████████████████                                                    | 109/297 [00:36<00:58,  3.20it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 37%|██████████████████████████████▎                                                   | 110/297 [00:37<00:57,  3.27it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 37%|██████████████████████████████▋                                                   | 111/297 [00:37<00:54,  3.39it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 38%|██████████████████████████████▉                                                   | 112/297 [00:37<00:56,  3.26it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 38%|███████████████████████████████▏                                                  | 113/297 [00:38<00:58,  3.17it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 38%|███████████████████████████████▍                                                  | 114/297 [00:38<00:59,  3.06it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 39%|███████████████████████████████▊                                                  | 115/297 [00:38<01:00,  3.02it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 39%|████████████████████████████████                                                  | 116/297 [00:39<00:56,  3.20it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 39%|████████████████████████████████▎                                                 | 117/297 [00:39<00:57,  3.14it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 40%|████████████████████████████████▌                                                 | 118/297 [00:39<00:54,  3.28it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 40%|████████████████████████████████▊                                                 | 119/297 [00:39<00:52,  3.40it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 40%|█████████████████████████████████▏                                                | 120/297 [00:40<00:55,  3.18it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 41%|█████████████████████████████████▍                                                | 121/297 [00:40<00:52,  3.33it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 41%|█████████████████████████████████▋                                                | 122/297 [00:40<00:55,  3.15it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 41%|█████████████████████████████████▉                                                | 123/297 [00:41<00:56,  3.10it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 42%|██████████████████████████████████▏                                               | 124/297 [00:41<00:56,  3.07it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 42%|██████████████████████████████████▌                                               | 125/297 [00:41<00:57,  2.98it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 42%|██████████████████████████████████▊                                               | 126/297 [00:42<01:00,  2.84it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 43%|███████████████████████████████████                                               | 127/297 [00:42<01:00,  2.81it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 43%|███████████████████████████████████▎                                              | 128/297 [00:43<01:01,  2.74it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 43%|███████████████████████████████████▌                                              | 129/297 [00:43<01:01,  2.74it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 44%|███████████████████████████████████▉                                              | 130/297 [00:43<00:59,  2.81it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 44%|████████████████████████████████████▏                                             | 131/297 [00:44<00:59,  2.77it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 44%|████████████████████████████████████▍                                             | 132/297 [00:44<00:58,  2.83it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 45%|████████████████████████████████████▋                                             | 133/297 [00:44<00:57,  2.87it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 45%|████████████████████████████████████▉                                             | 134/297 [00:45<00:56,  2.89it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 45%|█████████████████████████████████████▎                                            | 135/297 [00:45<00:56,  2.85it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 46%|█████████████████████████████████████▌                                            | 136/297 [00:45<00:55,  2.88it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 46%|█████████████████████████████████████▊                                            | 137/297 [00:46<00:52,  3.02it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 46%|██████████████████████████████████████                                            | 138/297 [00:46<00:53,  3.00it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 47%|██████████████████████████████████████▍                                           | 139/297 [00:46<00:49,  3.17it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 47%|██████████████████████████████████████▋                                           | 140/297 [00:47<00:52,  3.02it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 47%|██████████████████████████████████████▉                                           | 141/297 [00:47<00:53,  2.93it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 48%|███████████████████████████████████████▏                                          | 142/297 [00:47<00:50,  3.04it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 48%|███████████████████████████████████████▍                                          | 143/297 [00:48<00:47,  3.22it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 48%|███████████████████████████████████████▊                                          | 144/297 [00:48<00:46,  3.27it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 49%|████████████████████████████████████████                                          | 145/297 [00:48<00:47,  3.18it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 49%|████████████████████████████████████████▎                                         | 146/297 [00:49<00:48,  3.11it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 49%|████████████████████████████████████████▌                                         | 147/297 [00:49<00:47,  3.17it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 50%|████████████████████████████████████████▊                                         | 148/297 [00:49<00:54,  2.71it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 50%|█████████████████████████████████████████▏                                        | 149/297 [00:50<00:53,  2.78it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 51%|█████████████████████████████████████████▍                                        | 150/297 [00:50<00:52,  2.78it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 51%|█████████████████████████████████████████▋                                        | 151/297 [00:50<00:52,  2.77it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 51%|█████████████████████████████████████████▉                                        | 152/297 [00:51<00:52,  2.75it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 52%|██████████████████████████████████████████▏                                       | 153/297 [00:51<00:49,  2.92it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 52%|██████████████████████████████████████████▌                                       | 154/297 [00:51<00:46,  3.05it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 52%|██████████████████████████████████████████▊                                       | 155/297 [00:52<00:45,  3.13it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 53%|███████████████████████████████████████████                                       | 156/297 [00:52<00:47,  2.99it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 53%|███████████████████████████████████████████▎                                      | 157/297 [00:52<00:48,  2.90it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 53%|███████████████████████████████████████████▌                                      | 158/297 [00:53<00:47,  2.91it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 54%|███████████████████████████████████████████▉                                      | 159/297 [00:53<00:44,  3.12it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 54%|████████████████████████████████████████████▏                                     | 160/297 [00:53<00:44,  3.06it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 54%|████████████████████████████████████████████▍                                     | 161/297 [00:54<00:43,  3.13it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 55%|████████████████████████████████████████████▋                                     | 162/297 [00:54<00:45,  3.00it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 55%|█████████████████████████████████████████████                                     | 163/297 [00:54<00:46,  2.91it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 55%|█████████████████████████████████████████████▎                                    | 164/297 [00:55<00:46,  2.85it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 56%|█████████████████████████████████████████████▌                                    | 165/297 [00:55<00:46,  2.87it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 56%|█████████████████████████████████████████████▊                                    | 166/297 [00:55<00:45,  2.90it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 56%|██████████████████████████████████████████████                                    | 167/297 [00:56<00:44,  2.91it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 57%|██████████████████████████████████████████████▍                                   | 168/297 [00:56<00:44,  2.93it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 57%|██████████████████████████████████████████████▋                                   | 169/297 [00:56<00:43,  2.94it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 57%|██████████████████████████████████████████████▉                                   | 170/297 [00:57<00:43,  2.93it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 58%|███████████████████████████████████████████████▏                                  | 171/297 [00:57<00:40,  3.10it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 58%|███████████████████████████████████████████████▍                                  | 172/297 [00:57<00:39,  3.16it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 58%|███████████████████████████████████████████████▊                                  | 173/297 [00:58<00:40,  3.03it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 59%|████████████████████████████████████████████████                                  | 174/297 [00:58<00:38,  3.19it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 59%|████████████████████████████████████████████████▎                                 | 175/297 [00:58<00:39,  3.12it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 59%|████████████████████████████████████████████████▌                                 | 176/297 [00:59<00:39,  3.08it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 60%|████████████████████████████████████████████████▊                                 | 177/297 [00:59<00:39,  3.04it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 60%|█████████████████████████████████████████████████▏                                | 178/297 [00:59<00:37,  3.14it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 60%|█████████████████████████████████████████████████▍                                | 179/297 [01:00<00:40,  2.94it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 61%|█████████████████████████████████████████████████▋                                | 180/297 [01:00<00:40,  2.89it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 61%|█████████████████████████████████████████████████▉                                | 181/297 [01:00<00:42,  2.74it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 61%|██████████████████████████████████████████████████▏                               | 182/297 [01:01<00:42,  2.74it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 62%|██████████████████████████████████████████████████▌                               | 183/297 [01:01<00:40,  2.81it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 62%|██████████████████████████████████████████████████▊                               | 184/297 [01:01<00:38,  2.94it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 62%|███████████████████████████████████████████████████                               | 185/297 [01:02<00:35,  3.13it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 63%|███████████████████████████████████████████████████▎                              | 186/297 [01:02<00:37,  2.99it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 63%|███████████████████████████████████████████████████▋                              | 187/297 [01:02<00:34,  3.17it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 63%|███████████████████████████████████████████████████▉                              | 188/297 [01:03<00:35,  3.11it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 64%|████████████████████████████████████████████████████▏                             | 189/297 [01:03<00:33,  3.19it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 64%|████████████████████████████████████████████████████▍                             | 190/297 [01:03<00:34,  3.11it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 64%|████████████████████████████████████████████████████▋                             | 191/297 [01:04<00:35,  2.98it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 65%|█████████████████████████████████████████████████████                             | 192/297 [01:04<00:34,  3.07it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 65%|█████████████████████████████████████████████████████▎                            | 193/297 [01:04<00:36,  2.84it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 65%|█████████████████████████████████████████████████████▌                            | 194/297 [01:05<00:33,  3.05it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 66%|█████████████████████████████████████████████████████▊                            | 195/297 [01:05<00:32,  3.11it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 66%|██████████████████████████████████████████████████████                            | 196/297 [01:05<00:33,  3.00it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 66%|██████████████████████████████████████████████████████▍                           | 197/297 [01:06<00:34,  2.89it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 67%|██████████████████████████████████████████████████████▋                           | 198/297 [01:06<00:35,  2.83it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 67%|██████████████████████████████████████████████████████▉                           | 199/297 [01:06<00:33,  2.95it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 67%|███████████████████████████████████████████████████████▏                          | 200/297 [01:07<00:31,  3.06it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 68%|███████████████████████████████████████████████████████▍                          | 201/297 [01:07<00:30,  3.12it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 68%|███████████████████████████████████████████████████████▊                          | 202/297 [01:07<00:29,  3.18it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 68%|████████████████████████████████████████████████████████                          | 203/297 [01:08<00:30,  3.10it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 69%|████████████████████████████████████████████████████████▎                         | 204/297 [01:08<00:30,  3.06it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 69%|████████████████████████████████████████████████████████▌                         | 205/297 [01:08<00:29,  3.14it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 69%|████████████████████████████████████████████████████████▉                         | 206/297 [01:09<00:28,  3.20it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 70%|█████████████████████████████████████████████████████████▏                        | 207/297 [01:09<00:27,  3.23it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 70%|█████████████████████████████████████████████████████████▍                        | 208/297 [01:09<00:27,  3.25it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 70%|█████████████████████████████████████████████████████████▋                        | 209/297 [01:09<00:26,  3.27it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 71%|█████████████████████████████████████████████████████████▉                        | 210/297 [01:10<00:32,  2.67it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 71%|██████████████████████████████████████████████████████████▎                       | 211/297 [01:10<00:29,  2.89it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 71%|██████████████████████████████████████████████████████████▌                       | 212/297 [01:11<00:28,  3.02it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 72%|██████████████████████████████████████████████████████████▊                       | 213/297 [01:11<00:27,  3.00it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 72%|███████████████████████████████████████████████████████████                       | 214/297 [01:11<00:28,  2.89it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 72%|███████████████████████████████████████████████████████████▎                      | 215/297 [01:12<00:28,  2.90it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 73%|███████████████████████████████████████████████████████████▋                      | 216/297 [01:12<00:28,  2.84it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 73%|███████████████████████████████████████████████████████████▉                      | 217/297 [01:12<00:26,  3.05it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 73%|████████████████████████████████████████████████████████████▏                     | 218/297 [01:13<00:25,  3.14it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 74%|████████████████████████████████████████████████████████████▍                     | 219/297 [01:13<00:25,  3.09it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 74%|████████████████████████████████████████████████████████████▋                     | 220/297 [01:13<00:26,  2.85it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 74%|█████████████████████████████████████████████████████████████                     | 221/297 [01:14<00:26,  2.87it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 75%|█████████████████████████████████████████████████████████████▎                    | 222/297 [01:14<00:24,  3.05it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 75%|█████████████████████████████████████████████████████████████▌                    | 223/297 [01:14<00:24,  3.02it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 75%|█████████████████████████████████████████████████████████████▊                    | 224/297 [01:15<00:23,  3.16it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 76%|██████████████████████████████████████████████████████████████                    | 225/297 [01:15<00:22,  3.25it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 76%|██████████████████████████████████████████████████████████████▍                   | 226/297 [01:15<00:22,  3.13it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 76%|██████████████████████████████████████████████████████████████▋                   | 227/297 [01:16<00:22,  3.16it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 77%|██████████████████████████████████████████████████████████████▉                   | 228/297 [01:16<00:22,  3.07it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 77%|███████████████████████████████████████████████████████████████▏                  | 229/297 [01:16<00:21,  3.12it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 77%|███████████████████████████████████████████████████████████████▌                  | 230/297 [01:16<00:21,  3.16it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 78%|███████████████████████████████████████████████████████████████▊                  | 231/297 [01:17<00:20,  3.19it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 78%|████████████████████████████████████████████████████████████████                  | 232/297 [01:17<00:20,  3.20it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 78%|████████████████████████████████████████████████████████████████▎                 | 233/297 [01:17<00:20,  3.07it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 79%|████████████████████████████████████████████████████████████████▌                 | 234/297 [01:18<00:20,  3.05it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 79%|████████████████████████████████████████████████████████████████▉                 | 235/297 [01:18<00:19,  3.17it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 79%|█████████████████████████████████████████████████████████████████▏                | 236/297 [01:18<00:19,  3.18it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 80%|█████████████████████████████████████████████████████████████████▍                | 237/297 [01:19<00:19,  3.07it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 80%|█████████████████████████████████████████████████████████████████▋                | 238/297 [01:19<00:20,  2.94it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 80%|█████████████████████████████████████████████████████████████████▉                | 239/297 [01:19<00:19,  2.93it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 81%|██████████████████████████████████████████████████████████████████▎               | 240/297 [01:20<00:18,  3.02it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 81%|██████████████████████████████████████████████████████████████████▌               | 241/297 [01:20<00:19,  2.83it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 81%|██████████████████████████████████████████████████████████████████▊               | 242/297 [01:20<00:18,  3.00it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 82%|███████████████████████████████████████████████████████████████████               | 243/297 [01:21<00:17,  3.10it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 82%|███████████████████████████████████████████████████████████████████▎              | 244/297 [01:21<00:17,  2.98it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 82%|███████████████████████████████████████████████████████████████████▋              | 245/297 [01:22<00:18,  2.87it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 83%|███████████████████████████████████████████████████████████████████▉              | 246/297 [01:22<00:18,  2.71it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 83%|████████████████████████████████████████████████████████████████████▏             | 247/297 [01:22<00:18,  2.69it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 84%|████████████████████████████████████████████████████████████████████▍             | 248/297 [01:23<00:17,  2.81it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 84%|████████████████████████████████████████████████████████████████████▋             | 249/297 [01:23<00:16,  3.00it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 84%|█████████████████████████████████████████████████████████████████████             | 250/297 [01:23<00:15,  3.07it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 85%|█████████████████████████████████████████████████████████████████████▎            | 251/297 [01:23<00:14,  3.20it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 85%|█████████████████████████████████████████████████████████████████████▌            | 252/297 [01:24<00:15,  2.94it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 85%|█████████████████████████████████████████████████████████████████████▊            | 253/297 [01:24<00:15,  2.91it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 86%|██████████████████████████████████████████████████████████████████████▏           | 254/297 [01:25<00:14,  2.90it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 86%|██████████████████████████████████████████████████████████████████████▍           | 255/297 [01:25<00:14,  2.97it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 86%|██████████████████████████████████████████████████████████████████████▋           | 256/297 [01:25<00:13,  2.93it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 87%|██████████████████████████████████████████████████████████████████████▉           | 257/297 [01:26<00:13,  3.01it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 87%|███████████████████████████████████████████████████████████████████████▏          | 258/297 [01:26<00:12,  3.06it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 87%|███████████████████████████████████████████████████████████████████████▌          | 259/297 [01:26<00:12,  3.09it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 88%|███████████████████████████████████████████████████████████████████████▊          | 260/297 [01:27<00:12,  2.95it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 88%|████████████████████████████████████████████████████████████████████████          | 261/297 [01:27<00:12,  2.96it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 88%|████████████████████████████████████████████████████████████████████████▎         | 262/297 [01:27<00:11,  2.93it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 89%|████████████████████████████████████████████████████████████████████████▌         | 263/297 [01:28<00:11,  3.07it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 89%|████████████████████████████████████████████████████████████████████████▉         | 264/297 [01:28<00:11,  2.93it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 89%|█████████████████████████████████████████████████████████████████████████▏        | 265/297 [01:28<00:10,  3.00it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 90%|█████████████████████████████████████████████████████████████████████████▍        | 266/297 [01:29<00:09,  3.15it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 90%|█████████████████████████████████████████████████████████████████████████▋        | 267/297 [01:29<00:09,  3.07it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 90%|█████████████████████████████████████████████████████████████████████████▉        | 268/297 [01:29<00:09,  3.03it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 91%|██████████████████████████████████████████████████████████████████████████▎       | 269/297 [01:30<00:09,  2.98it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 91%|██████████████████████████████████████████████████████████████████████████▌       | 270/297 [01:30<00:09,  2.90it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 91%|██████████████████████████████████████████████████████████████████████████▊       | 271/297 [01:30<00:08,  2.90it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 92%|███████████████████████████████████████████████████████████████████████████       | 272/297 [01:31<00:08,  2.91it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 92%|███████████████████████████████████████████████████████████████████████████▎      | 273/297 [01:31<00:07,  3.02it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 92%|███████████████████████████████████████████████████████████████████████████▋      | 274/297 [01:31<00:07,  3.08it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 93%|███████████████████████████████████████████████████████████████████████████▉      | 275/297 [01:32<00:06,  3.15it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 93%|████████████████████████████████████████████████████████████████████████████▏     | 276/297 [01:32<00:06,  3.28it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 93%|████████████████████████████████████████████████████████████████████████████▍     | 277/297 [01:32<00:06,  3.17it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 94%|████████████████████████████████████████████████████████████████████████████▊     | 278/297 [01:32<00:05,  3.23it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 94%|█████████████████████████████████████████████████████████████████████████████     | 279/297 [01:33<00:05,  3.13it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 94%|█████████████████████████████████████████████████████████████████████████████▎    | 280/297 [01:33<00:05,  3.00it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 95%|█████████████████████████████████████████████████████████████████████████████▌    | 281/297 [01:34<00:05,  2.82it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 95%|█████████████████████████████████████████████████████████████████████████████▊    | 282/297 [01:34<00:05,  2.95it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 95%|██████████████████████████████████████████████████████████████████████████████▏   | 283/297 [01:34<00:04,  2.95it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 96%|██████████████████████████████████████████████████████████████████████████████▍   | 284/297 [01:34<00:04,  3.05it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 96%|██████████████████████████████████████████████████████████████████████████████▋   | 285/297 [01:35<00:03,  3.10it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 96%|██████████████████████████████████████████████████████████████████████████████▉   | 286/297 [01:35<00:03,  3.16it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 97%|███████████████████████████████████████████████████████████████████████████████▏  | 287/297 [01:35<00:03,  3.19it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 97%|███████████████████████████████████████████████████████████████████████████████▌  | 288/297 [01:36<00:02,  3.20it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 97%|███████████████████████████████████████████████████████████████████████████████▊  | 289/297 [01:36<00:02,  3.04it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 98%|████████████████████████████████████████████████████████████████████████████████  | 290/297 [01:36<00:02,  3.00it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 98%|████████████████████████████████████████████████████████████████████████████████▎ | 291/297 [01:37<00:01,  3.08it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 98%|████████████████████████████████████████████████████████████████████████████████▌ | 292/297 [01:37<00:01,  2.95it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 99%|████████████████████████████████████████████████████████████████████████████████▉ | 293/297 [01:37<00:01,  2.86it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 99%|█████████████████████████████████████████████████████████████████████████████████▏| 294/297 [01:38<00:00,  3.06it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+ 99%|█████████████████████████████████████████████████████████████████████████████████▍| 295/297 [01:38<00:00,  2.96it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+100%|█████████████████████████████████████████████████████████████████████████████████▋| 296/297 [01:38<00:00,  3.14it/s]Setting `pad_token_id` to `eos_token_id`:0 for open-end generation.
+100%|██████████████████████████████████████████████████████████████████████████████████| 297/297 [01:39<00:00,  2.99it/s]
+[2024-03-26 16:56:19,894] (gpt_inference) [*] f1 = 0.878
+[2024-03-26 16:56:19,895] (gpt_inference) [*] roc_auc = 0.913
+[2024-03-26 16:56:19,895] (gpt_inference) [*] accuracy = 0.830

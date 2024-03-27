@@ -1,0 +1,38 @@
+[2024-03-26 16:14:41,899] (bert_GRU) ########## Arguments ##########
+[2024-03-26 16:14:41,899] (bert_GRU) model               : klue/roberta-large
+[2024-03-26 16:14:41,899] (bert_GRU) train_batch_size    : 24
+[2024-03-26 16:14:41,899] (bert_GRU) val_batch_size      : 48
+[2024-03-26 16:14:41,899] (bert_GRU) epochs              : 5
+[2024-03-26 16:14:41,899] (bert_GRU) lr                  : 2e-05
+[2024-03-26 16:14:41,899] (bert_GRU) weight_decay        : 0.01
+[2024-03-26 16:14:41,900] (bert_GRU) seed                : 42
+[2024-03-26 16:14:41,900] (bert_GRU) output_dir          : bert_GRU_outputs
+[2024-03-26 16:14:41,900] (bert_GRU) [*] Load datasets
+[2024-03-26 16:14:41,929] (bert_GRU) [*] Load customized pre-trained model and associated tokenizer
+Some weights of RobertaModel were not initialized from the model checkpoint at klue/roberta-large and are newly initialized: ['roberta.pooler.dense.weight', 'roberta.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[2024-03-26 16:15:07,606] (bert_GRU) [*] Preprocessing
+Map: 100%|██████████████████████████████████████████████████████████████████| 4751/4751 [00:01<00:00, 3052.30 examples/s]
+[2024-03-26 16:15:09,206] (bert_GRU) [*] Start training
+  0%|                                                                                           | 0/7905 [00:00<?, ?it/s]You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+{'loss': 0.3005, 'learning_rate': 1.2642225031605565e-05, 'epoch': 0.32}                                                 
+{'loss': 0.1539, 'learning_rate': 1.94124262018555e-05, 'epoch': 0.63}                                                   
+{'loss': 0.1295, 'learning_rate': 1.8006747258926063e-05, 'epoch': 0.95}                                                 
+{'eval_loss': 0.10806458443403244, 'eval_f1': 0.8470540758676351, 'eval_roc_auc': 0.8956952037753994, 'eval_accuracy': 0.7808882340559882, 'eval_runtime': 11.6542, 'eval_samples_per_second': 407.664, 'eval_steps_per_second': 8.495, 'epoch': 1.0}
+{'loss': 0.1047, 'learning_rate': 1.6601068315996627e-05, 'epoch': 1.27}                                                 
+{'loss': 0.0982, 'learning_rate': 1.5195389373067193e-05, 'epoch': 1.58}                                                 
+{'loss': 0.0907, 'learning_rate': 1.3789710430137757e-05, 'epoch': 1.9}                                                  
+{'eval_loss': 0.10268743336200714, 'eval_f1': 0.8601016021883547, 'eval_roc_auc': 0.9134741131810198, 'eval_accuracy': 0.7939381182908861, 'eval_runtime': 11.6958, 'eval_samples_per_second': 406.216, 'eval_steps_per_second': 8.465, 'epoch': 2.0}
+{'loss': 0.07, 'learning_rate': 1.2384031487208323e-05, 'epoch': 2.21}                                                   
+{'loss': 0.0607, 'learning_rate': 1.0978352544278888e-05, 'epoch': 2.53}                                                 
+{'loss': 0.0598, 'learning_rate': 9.572673601349452e-06, 'epoch': 2.85}                                                  
+{'eval_loss': 0.11326202005147934, 'eval_f1': 0.8674721902570004, 'eval_roc_auc': 0.9240221363094488, 'eval_accuracy': 0.8029888444537993, 'eval_runtime': 11.7362, 'eval_samples_per_second': 404.815, 'eval_steps_per_second': 8.435, 'epoch': 3.0}
+{'loss': 0.0473, 'learning_rate': 8.166994658420018e-06, 'epoch': 3.16}                                                  
+{'loss': 0.0372, 'learning_rate': 6.761315715490583e-06, 'epoch': 3.48}                                                  
+{'loss': 0.0361, 'learning_rate': 5.355636772561148e-06, 'epoch': 3.8}                                                   
+{'eval_loss': 0.12648668885231018, 'eval_f1': 0.8709800190294957, 'eval_roc_auc': 0.928785696524086, 'eval_accuracy': 0.8027783624500106, 'eval_runtime': 11.7425, 'eval_samples_per_second': 404.598, 'eval_steps_per_second': 8.431, 'epoch': 4.0}
+{'loss': 0.0312, 'learning_rate': 3.949957829631713e-06, 'epoch': 4.11}                                                  
+{'loss': 0.0218, 'learning_rate': 2.5442788867022773e-06, 'epoch': 4.43}                                                 
+{'loss': 0.021, 'learning_rate': 1.1385999437728423e-06, 'epoch': 4.74}                                                  
+{'eval_loss': 0.14253048598766327, 'eval_f1': 0.8745131566448181, 'eval_roc_auc': 0.9314219053851774, 'eval_accuracy': 0.8086718585560935, 'eval_runtime': 11.6464, 'eval_samples_per_second': 407.937, 'eval_steps_per_second': 8.5, 'epoch': 5.0}
+100%|████████████████████████████████████████████████████████████████████████████████| 7905/7905 [25:05<00:00,  4.46it/s
