@@ -8,12 +8,12 @@ All the resulting models are designed to fit in RTX 4090 and assessed using the 
 
 # Approaches
 ## BERT Models
-**bert_plain.py**: Fine-tune a BERT model for multi-label sequence classification by attaching a fully-connected layer to the output representation of CLS token.
-**bert_GRU.py**: Fine-tune a BERT model for multi-label sequence classification by attaching a bidrectional GRU layer on top of the model. The representations from GRU is then concatenated to CLS token representation, and passed to multiple fully-connected layers for classification.
+**bert_plain.py**: Fine-tune a BERT model for multi-label sequence classification by attaching a fully-connected layer to the output representation of CLS token.  
+**bert_GRU.py**: Fine-tune a BERT model for multi-label sequence classification by attaching a bidrectional GRU layer on top of the model. The representations from GRU is then concatenated to CLS token representation, and passed to multiple fully-connected layers for classification.  
 
 ## GPT Model
-**gpt_train.py**: Fine-tune a GPT model to answer what emotion is expressed in the given sentence. To accommodate the model within a 24GB VRAM, the base model is quantized to 4-bit representation and fine-tuned employing QLoRA.
-**gpt_inference.py**: Perform inference using the fine-tuned model from `gpt_train.py`. Presence of each emotion is determined based on transition probabilities of the model.
+**gpt_train.py**: Fine-tune a GPT model to answer what emotion is expressed in the given sentence. To accommodate the model within a 24GB VRAM, the base model is quantized to 4-bit representation and fine-tuned employing QLoRA.  
+**gpt_inference.py**: Perform inference using the fine-tuned model from `gpt_train.py`. Presence of each emotion is determined based on transition probabilities of the model.  
 
 # Quick Start
 Training the models from scratch requires the corpus dataset, but it is not included due to distribution restrictions. It can be accessed  from [국립국어원 인공지능AI말평](https://kli.korean.go.kr/) [[Competition Link]](https://kli.korean.go.kr/benchmark/taskOrdtm/taskList.do?taskOrdtmId=103&clCd=END_TASK&subMenuId=sub01).
